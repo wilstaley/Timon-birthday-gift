@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset = "utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>T I M O N</title>
+   <style>
+      html, body{
+         margin: 0;
+      }
+      canvas{
+         border: 1px solid black;
+      }
+   </style>
+</head>
+<body>
+   <audio autoplay>
+      <source src="angerhofer_fugue.wav">
+   </audio>
+   <canvas id="cnvs"></canvas>
+
+   <script>
+      const canvas = document.querySelector('#cnvs');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      ctx.font = '70px Arial white';
+      ctx.textAlign = 'center';
+      ctx.fillStyle = 'white';
+      var img = new Image();
+      img.src = 'face.png';
+      var x, y;
+
+      canvas.addEventListener('mousemove', (e) => {
+         x = e.clientX;
+         y = e.clientY;
+      });
+
+      setInterval(draw, 15);
+
+      function draw() {
+         ctx.drawImage(img, x-90, y-150);
+         ctx.fillText('Happy Birthday Timon!', canvas.width/2, canvas.height/2);
+      }
+
+   </script>
+</body>
+</html>
