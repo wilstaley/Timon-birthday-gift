@@ -3,7 +3,6 @@ console.log('Initiating birthday party 🎉')
 const name = 'Emily'
 let img;
 let song;
-let red, green, blue;
 
 function preload() {
   img = loadImage(`./faces/${name}-face.png`);
@@ -16,9 +15,6 @@ function setup(){
     textAlign(CENTER, CENTER);
     noCursor();
     background(200, 0, 255);
-    red = random(0, 255);
-    green = random(0, 255);
-    blue = random(0, 255);
     img.resize(200, 300);
     getAudioContext().resume()
     userStartAudio().then(function() {
