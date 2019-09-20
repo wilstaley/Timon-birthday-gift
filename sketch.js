@@ -5,16 +5,6 @@ let img;
 let song;
 let red, green, blue;
 
-function eventFire(el, etype){
-  if (el.fireEvent) {
-    el.fireEvent('on' + etype);
-  } else {
-    var evObj = document.createEvent('Events');
-    evObj.initEvent(etype, true, false);
-    el.dispatchEvent(evObj);
-  }
-}
-
 function preload() {
   img = loadImage(`./faces/${name}-face.png`);
   song = loadSound(`./songs/${name}.mp3`);
