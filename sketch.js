@@ -5,6 +5,16 @@ let img;
 let song;
 let red, green, blue;
 
+function eventFire(el, etype){
+  if (el.fireEvent) {
+    el.fireEvent('on' + etype);
+  } else {
+    var evObj = document.createEvent('Events');
+    evObj.initEvent(etype, true, false);
+    el.dispatchEvent(evObj);
+  }
+}
+
 function preload() {
   img = loadImage(`./faces/${name}-face.png`);
   song = loadSound(`./songs/${name}.mp3`);
@@ -22,9 +32,10 @@ function setup(){
     img.resize(200, 300);
     getAudioContext().resume()
     userStartAudio().then(function() {
-        console.log('playing audio');
+        console.log('Cranking the tunes 🎶');
     });
     song.play();
+    document.getElementsByTagName("BODY")[0].click();
 }
 
 function draw(){
