@@ -20,6 +20,10 @@ function setup(){
     green = random(0, 255);
     blue = random(0, 255);
     img.resize(200, 300);
+    getAudioContext().resume()
+    userStartAudio().then(function() {
+        console.log('playing audio');
+    });
     song.play();
 }
 
